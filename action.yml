@@ -1,0 +1,25 @@
+name: 'Replace string'
+author: 'step-security'
+description: 'Use regular expressions to manipulate strings'
+inputs:
+  pattern:
+    description: 'Regular expression pattern'
+    required: true
+  string:
+    description: 'The input string'
+    required: true
+  replace-with:
+    description: 'What to replace with'
+    required: true
+  flags:
+    description: 'Flags to use when matching'
+    required: false
+outputs:
+  replaced:
+    description: 'The output string'
+runs:
+  using: 'node24'
+  main: 'dist/index.js'
+branding:
+  icon: 'search'
+  color: gray-dark

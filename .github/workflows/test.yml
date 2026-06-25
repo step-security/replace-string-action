@@ -1,0 +1,34 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Test
+        uses: ./
+        id: test
+        with:
+          string: 'aasdfa/v1.0.1'
+          pattern: '[\w\d/]*v(\d+(?:\.\d+)*)'
+          replace-with: '$1'
+      - name: Check equality
+        run: '[[ "${{ steps.test.outputs.replaced }}" == "1.0.1" ]]'
+  test-whitespace:
+    runs-on: ubuntu-latest
+    name: Test whitespaces
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Test
+        uses: ./
+        id: test
+        with:
+          string: '_replace_underscores_'
+          pattern: '_'
+          replace-with: ' '
+          flags: 'g'
+      - name: Check equality
+        run: '[[ "${{ steps.test.outputs.replaced }}" == " replace underscores " ]]'

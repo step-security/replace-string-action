@@ -1,5 +1,5 @@
 name: 'Replace string'
-author: 'Francesco Bertolaccini'
+author: 'step-security'
 description: 'Use regular expressions to manipulate strings'
 inputs:
   pattern:
@@ -19,7 +19,7 @@ outputs:
     description: 'The output string'
 runs:
   using: 'node24'
-  main: 'index.js'
+  main: 'dist/index.js'
 branding:
   icon: 'search'
   color: gray-dark

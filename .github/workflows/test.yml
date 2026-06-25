@@ -6,7 +6,7 @@ jobs:
     name: Test
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v7
       - name: Test
         uses: ./
         id: test
@@ -21,7 +21,7 @@ jobs:
     name: Test whitespaces
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v7
       - name: Test
         uses: ./
         id: test
